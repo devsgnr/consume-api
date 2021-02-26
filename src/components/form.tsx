@@ -5,12 +5,14 @@ import { useState } from "react";
 import { useMutation } from "react-query";
 import "../App.css";
 
-function Form() {
+const Form: React.FC<{}> = () => {
   const voterUrl = "https://api-demo-voting.herokuapp.com/addVoters";
 
   const [voterEmail, setVoterEmail] = useState("");
 
-  const mutation = useMutation((newVoter) => axios.post(voterUrl, newVoter));
+  const mutation: any = useMutation((newVoter) =>
+    axios.post(voterUrl, newVoter)
+  );
 
   return (
     <div>
@@ -35,6 +37,6 @@ function Form() {
       </Button>
     </div>
   );
-}
+};
 
 export default Form;

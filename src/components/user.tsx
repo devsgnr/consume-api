@@ -2,10 +2,10 @@ import { useQuery } from "react-query";
 import { List, Avatar } from "antd";
 import axios from "axios";
 
-function User() {
+const User: React.FC<{}> = () => {
   const baseUrl = "https://devsgnr-voting-app-api.wl.r.appspot.com/";
 
-  const { isLoading, isError, isFetching, data, error } = useQuery(
+  const { isLoading, isError, isFetching, data, error }: any = useQuery(
     "users",
     async () => {
       const { data } = await axios.get(baseUrl);
@@ -15,9 +15,9 @@ function User() {
   );
 
   return isLoading ? (
-    <div>loading...</div>
+    <div className="mt-5 pb-5">loading...</div>
   ) : isError ? (
-    <div>An error occured: {error.message}</div>
+    <div className="mt-5 pb-5">An error occured: {error.message}</div>
   ) : isFetching ? (
     <div className="mt-5 pb-5">updating...</div>
   ) : (
@@ -29,7 +29,7 @@ function User() {
             header={<div>Voters</div>}
             bordered
             dataSource={data.voters}
-            renderItem={(item) => (
+            renderItem={(item: any) => (
               <List.Item key={item.id}>
                 <List.Item.Meta
                   avatar={<Avatar />}
@@ -44,6 +44,6 @@ function User() {
       </div>
     </div>
   );
-}
+};
 
 export default User;

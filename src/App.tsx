@@ -5,13 +5,11 @@ import "./App.css";
 
 const queryClient = new QueryClient();
 
-function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Form />
-      <User />
-    </QueryClientProvider>
-  );
-}
+const App: React.FC<{}> = () => (
+  <QueryClientProvider client={queryClient}>
+    <Form />
+    <User />
+  </QueryClientProvider>
+);
 
 export default App;
