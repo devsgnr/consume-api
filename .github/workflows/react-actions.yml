@@ -30,7 +30,7 @@ jobs:
         run: yarn install
 
       - name: Run the tests and generate coverage report
-        run: yarn test -- --coverage
+        run: yarn test --coverage
 
       - name: Build application
         run: yarn build
